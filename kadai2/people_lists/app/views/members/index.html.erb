@@ -1,16 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
-<% content_for :title, "Members" %>
-
-<h1>Members</h1>
-
-<div id="members">
-  <% @members.each do |member| %>
-    <%= render member %>
-    <p>
-      <%= link_to "Show this member", member %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New member", new_member_path %>
+<% if member.errors.any? %>
+  <div class="error-messages">
+    <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
+    <ul>
+      <% member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
