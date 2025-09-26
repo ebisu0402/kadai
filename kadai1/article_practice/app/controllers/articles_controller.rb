@@ -16,14 +16,15 @@ class ArticlesController < ApplicationController
   def edit
   end
 
-  def create
-    @article = Article.new(article_params)
-    if @article.save
-      redirect_to articles_path, notice: '新規投稿しました。'
-    else
-      render :new
-    end
+def create
+  @article = Article.new(article_params)
+  if @article.save
+    redirect_to articles_path, notice: "記事を投稿しました"
+  else
+    render :new, status: :unprocessable_entity
   end
+end
+
 
   def update
     if @article.update(article_params)

@@ -9,12 +9,19 @@
 
 <%= link_to '新規投稿', new_article_path %>
 
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article_path(article) %> |
-      <%= link_to article.content.truncate(100), edit_article_path(article) %> |
-      <%= button_to '削除', article_path(article), method: :delete, data: { confirm: '本当に削除しますか?' } %>
-    </li>
-  <% end %>
-</ul>
+<table class="article-table">
+  <thead>
+    <tr>
+      <th class="width">タイトル</th>
+      <th>投稿内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= link_to article.title, article_path(article) %></td>
+        <td><%= article.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
