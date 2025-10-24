@@ -1,20 +1,15 @@
-# config/routes.rb
 Rails.application.routes.draw do
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  get "users/new"
-  get "users/show"
-  get "users/create"
-  get "homes/index"
   root 'homes#index'  
 
+  # サインアップ
   get  '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
+  # ログイン / ログアウト
   get    '/login',  to: 'sessions#new'
   post   '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  # マイページ
   get '/mypage', to: 'users#show'
 end
