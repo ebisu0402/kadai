@@ -1,0 +1,29 @@
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}
+.article-table {
+  width: 100%;
+  border-collapse: collapse; 
+  margin-top: 1em;
+}
+
+.article-table th,
+.article-table td {
+  border: 1px solid #000000;
+  padding: 8px;
+  vertical-align: top;
+}
+
+
+.width {
+  width: 200px;
+}
+
+
+.article-table td a:hover {
+  text-decoration: underline;
+}
